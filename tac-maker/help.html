@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head xmlns="http://www.w3.org/1999/html">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Transit Analytical Curve maker - Help</title>
+
+    <meta name="keywords" content="exoplanets, planet transit, astrophysics, physics, computing, help" />
+    <meta name="description" content="The TAC-maker (Transit Analytical Curve maker) allows rapid and interactive calculation of synthetic planet transits. Its algorithm is based on the solution of the direct problem of planet transits by transformation of double integrals to single ones (Kjurkchieva, Dimitrov, Vladev, Yotov, 2013, MNRAS, in press)." />
+
+    <meta name="language" content="en" />
+    <meta name="robots" content="all" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
+
+    <style type="text/css" media="screen">
+        body, html {
+            font-size:16px;
+        }
+
+        .wrapper {
+            width:70%;
+            text-align:justify;
+            margin:auto;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+    <h1><a href="index.html">Transit Analytical Curve maker</a> - Help</h1>
+
+    <div style="float:left;margin-right:20px;">
+        <a href="images/screen.png"><img src="images/screen-small.png" alt="Transit Analytical Curve maker screen" /></a>
+    </div>
+
+    <p>The TAC-maker screen has 5 sections:</p>
+    <ul style="list-style-position: inside;">
+        <li><a href="#input">Input parameters</a> - Sets parameters of the system</li>
+        <li><a href="#import">Import settings</a> - Imports observation and transforms observation to phases/fluxes</li>
+        <li><a href="#plot">Plot</a> - Displays observation points and synthetic curve in a plot with corresponding residuals</li>
+        <li><a href="#result">Result table</a> - Displays result of the calculations along with a export function</li>
+        <li><a href="#file">File menu</a> - Saves and opens model file</li>
+    </ul>
+    <a href="#tips">Tips that are useful when working with TAC-maker</a>
+
+    <br style="clear:both;" />
+
+	<h2>Installation:</h2>
+	<p>Unzip the archive and run TAC-maker.exe file inside TAC-maker directory.</p>
+	
+    <h2><a name="input">Input parameters</a></h2>
+    <div style="margin-left:30px;">
+    <ul>
+        <li><b>Semi-major axis</b> - Radius of the orbit of transiting planet in AU</li>
+        <li><b>Stellar radius</b> - Radius of the star in AU or R<sub>jup</sub>(conversion AU <-> R<sub>jup</sub> is done automatically) </li>
+        <li><b>Planet radius</b> - Radius of the planet in AU or R<sub>jup</sub>(conversion AU <-> R<sub>jup</sub> is done automatically) </li>
+        <li><b>Stellar temperature</b> - Temperature of the star in Kelvin scale</li>
+        <li><b>Inclination</b> - Inclination of the orbit from the perspective of the observer in degrees</li>
+        <li><b>Darkening law</b> - The stellar surface darkening law used for calculations</li>
+        <li><b>Darkening coefficient 1</b> - First coefficient for darkening law calculation</li>
+        <li><b>Darkening coefficient 2</b> - Second coefficient for darkening law calculation</li>
+        <li><b>Phase end</b> - The end phase of the calculation typically &lt; 0.05</li>
+        <li><b>Phase step</b> - Phase end / Phase step = total points which will be calculated</li>
+        <li><b>Integration precision</b> - How small the error of integration have to be</li>
+    </ul>
+    </div>
+
+    <h2><a name="import">Import settings</a></h2>
+    <div style="margin-left:30px;">
+        <ul>
+            <li><b>Browse... button</b> - Loads a tab separated file in (phase or HJD) (flux or magnitude) format </li>
+            <li><b>Convert HJD to phases</b> - Check this option if your import file is in HJD</li>
+            <ul>
+                <li><b>T<sub>0</sub></b> - HJD time of the transit</li>
+                <li><b>P</b> - Orbital period of the planet in HJD</li>
+            </ul>
+            <br/>
+            <li><b>Convert magnitude to flux</b> - Check this option if you file is in magnitudes</li>
+            <ul>
+                <li><b>Mag</b> - Max. magnitude of the system out of transit</li>
+            </ul>
+            <br/>
+            <li><b>Redraw button</b> - Draws imported file on the plot</li>
+        </ul>
+    </div>
+
+    <h2><a name="plot">Plot</a></h2>
+    <div style="margin-left:30px;">
+        <p>The <b>"Plot"</b> tab contains two figures, depending on whether a import file is loaded:</p>
+        <ul>
+            <li>Top figure plots synthetic curve as blue line and imported points as red dots.</li>
+            <li>Bottom figure show the residual for synthetic and imported values along with a Χ<sup>2</sup>.</li>
+        </ul>
+    </div>
+
+    <h2><a name="result">Result table</a></h2>
+    <div style="margin-left:30px;">
+        <p>The <b>"Result table"</b> tab shows last calculation values. For each phase values of the synthetic and imported curve are show along with the difference between them. This table can be exported in tab separated file from the <b>"Export..."</b> button.</p>
+    </div>
+
+    <h2><a name="file">File menu</a></h2>
+    <div style="margin-left:30px;">
+        <p>File menu is used for opening and saving your models.</p>
+        <p>You can use <b>"data/"</b> folder for storing your observations and models files. There is one example at <b>"data/wasp10/"</b>:</p>
+        <ul>
+            <li>curve.dat - Represents observation file</li>
+            <li>wasp10.ini - Represents already saved model which can be loaded from <b>"File -> Open..."</b> menu.</li>
+        </ul>
+    </div>
+
+    <h2><a name="tips">Tips</a></h2>
+    <div style="margin-left:30px;">
+        <ul>
+            <li>Keep <b>"Integration precision"</b> lower until you find rough estimate of the system this will reduce computation time.</li>
+            <li>Set <b>"Phase step"</b> to 1 if you have a lot of observation points in this case synthetic curve will be generated only for imported phases and this will reduce the time for computation.</li>
+            <li>Your last session is automatically save on exit and next time you start the program it will load <b>"Input parameters"</b> and <b>"Import settings"</b> sections.</li>
+        </ul>
+    </div>
+    <br/>
+</div>
+<a href="https://github.com/acshu"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+</body>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head xmlns="http://www.w3.org/1999/html">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Transit Analytical Curve maker</title>
+
+        <meta name="keywords" content="exoplanets, planet transit, astrophysics, physics, computing" />
+        <meta name="description" content="The TAC-maker (Transit Analytical Curve maker) allows rapid and interactive calculation of synthetic planet transits. Its algorithm is based on the solution of the direct problem of planet transits by transformation of double integrals to single ones (Kjurkchieva, Dimitrov, Vladev, Yotov, 2013, MNRAS, in press)." />
+
+        <meta name="language" content="en" />
+        <meta name="robots" content="all" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
+
+        <style type="text/css" media="screen">
+            body, html {
+                font-size:16px;
+            }
+
+            .wrapper {
+                width:70%;
+                text-align:justify;
+                margin:auto;
+            }
+        </style>
+	</head>
+
+    <body>
+        <div class="wrapper">
+            <h1><a href="index.html">Transit Analytical Curve maker</a></h1>
+
+            <p>The <strong>TAC-maker</strong> (<b>T</b>ransit <b>A</b>nalytical <b>C</b>urve maker) allows rapid and interactive calculation of synthetic planet transits. Its algorithm is based on the solution of the direct problem of planet transits by transformation of double integrals to single ones (Kjurkchieva, Dimitrov, Vladev, Yotov, 2013, MNRAS, in press).</p>
+
+            <div style="float:right;">
+                <a href="images/screen.png"><img src="images/screen-small.png" alt="Transit Analytical Curve maker screen" /></a>
+                <h2 style="margin-top:2px;">
+                    <a style="float:left;" href="download/TAC-maker.zip">Download</a>
+                    <a style="float:right;" href="help.html">Help</a>
+                </h2>
+            </div>
+
+            <p>The input parameters of TAC-maker are:</p>
+
+            <ul style="margin-bottom:0px;">
+                <li>radius of the orbit <b>a</b></li>
+                <li>Period <b>P</b> and initial epoch  <b>T<sub>0</sub></b> (in HJD)</li>
+                <li>radius of the star <b>R<sub>s</sub></b></li>
+                <li>radius of the planet <b>R<sub>p</sub></b></li>
+                <li>orbital inclination <b>i</b></li>
+                <li>temperature of the star <b>T<sub>s</sub></b></li>
+                <li>temperature of the planet <b>T<sub>p</sub></b></li>
+                <li>coefficients of the limb-darkening <b>u<sub>j</sub></b></li>
+                <li>step in phase <b>PHSTEP</b></li>
+                <li>parameter of precision <b>PP<sub>TAC</sub></b> of the numerical calculations of the integrals</li>
+            </ul>
+            <br style="clear:both;" />
+
+            <p>The TAC-maker provides a possibility to choose the limb-darkening law between the known function (linear, quadratic, squared-root, logarithmic) or to write own arbitrary function f(u<sub>j</sub>, ϕ) for limb-darkening law. The output results flow as data file (phase ϕ, flux F).</p>
+
+            <p>The TAC-maker is written in <a href="http://python.org/"><b>Python 2.7</b></a>. The numerical calculations of the corresponding integrals is made by the <a href="http://www.scipy.org/"><b>scipy</b></a> package.</p>
+
+            <p>The code has a Graphical User Interface and allows search for solutions of observed transits by the method of attempts and errors varying the input parameters. The import data file might be in format magnitude or flux and HJD or phase. An estimate of the fit quality is the calculated value of Χ<sup>2</sup>. Moreover, the two plots of the current solution showing the observational data with the synthetic transit as well as the corresponding phase distribution of the residuals allow fast finding of a good model.</p>
+        </div>
+        <a href="https://github.com/acshu"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+    </body>
