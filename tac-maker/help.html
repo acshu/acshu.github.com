@@ -35,20 +35,23 @@
 
 		<p>The TAC-maker screen has 5 sections:</p>
 		<ul style="list-style-position: inside;">
-			<li><a href="#input">Input parameters</a> - Sets parameters of the system</li>
-			<li><a href="#import">Import settings</a> - Imports observation and transforms observation to phases/fluxes</li>
-			<li><a href="#plot">Plot</a> - Displays observation points and synthetic curve in a plot with corresponding residuals</li>
-			<li><a href="#result">Result table</a> - Displays result of the calculations along with a export function</li>
-			<li><a href="#file">File menu</a> - Saves and opens model file</li>
+			<li><a href="#parameters">Parameters</a> - Sets parameters of the system or range of values for each parameter</li>
+			<li><a href="#observation">Observation</a> - Imports observation and transforms observation to phases/fluxes</li>
+            <li><a href="#results_tab">Results tab</a> - Displays all calculations made</li>
+			<li><a href="#plot_tab">Plot tab</a> - Displays observation points and synthetic curve in a plot with corresponding residuals</li>
+			<li><a href="#data_tab">Data tab</a> - Displays values for selected result along with a export function</li>
+			<li><a href="#file_menu">File menu</a> - Saves and opens model file</li>
 		</ul>
 		<a href="#tips">Tips that are useful when working with TAC-maker</a>
 
 		<br style="clear:both;" />
 
-		<h2>Installation:</h2>
+		<h2>Installation</h2>
 		<p>Unzip the archive and run TAC-maker.exe file inside TAC-maker directory.</p>
+        <br/>
 		
-		<h2><a name="input">Input parameters</a></h2>
+		<h2><a name="parameters">Parameters</a></h2>
+        <p>Parameters section is used to set parameters of the system or a range of values. Range of values is set by "R" button next to the input field. </p>
 		<div style="margin-left:30px;">
 		<ul>
 			<li><b>Semi-major axis</b> - Radius of the orbit of transiting planet in AU</li>
@@ -56,7 +59,7 @@
 			<li><b>Planet radius</b> - Radius of the planet in AU or R<sub>jup</sub>(conversion AU <-> R<sub>jup</sub> is done automatically) </li>
 			<li><b>Stellar temperature</b> - Temperature of the star in Kelvin scale</li>
 			<li><b>Inclination</b> - Inclination of the orbit from the perspective of the observer in degrees</li>
-			<li><b>Darkening law</b> - The stellar surface darkening law used for calculations</li>
+			<li><b>Darkening law</b> - The stellar surface darkening law used for calculation</li>
 			<li><b>Darkening coefficient 1</b> - First coefficient for darkening law calculation</li>
 			<li><b>Darkening coefficient 2</b> - Second coefficient for darkening law calculation</li>
 			<li><b>Phase end</b> - The end phase of the calculation typically &lt; 0.05</li>
@@ -64,8 +67,9 @@
 			<li><b>Integration precision</b> - How small the error of integration have to be</li>
 		</ul>
 		</div>
+        <br/>
 
-		<h2><a name="import">Import settings</a></h2>
+		<h2><a name="observation">Observation</a></h2>
 		<div style="margin-left:30px;">
 			<ul>
 				<li><b>Browse... button</b> - Loads a tab separated file in (phase or HJD) (flux or magnitude) format </li>
@@ -83,22 +87,39 @@
 				<li><b>Redraw button</b> - Draws imported file on the plot</li>
 			</ul>
 		</div>
+        <br/>
 
-		<h2><a name="plot">Plot</a></h2>
+        <h2><a name="results_tab">Results tab</a></h2>
+        <p>The <b>"Results"</b> tab contains a list of all calculations made. The table can be sorted for each column, also any of the columns can be hided from right-click menu in header.</p>
+        <p>Each result can be loaded to the <b>Plot</b> and <b>Data</b> tabs by double clicking or pressing Enter key on selected row.</p>
+        <p>There is also right-click menu with this options</p>
+        <div style="margin-left:30px;">
+            <ul>
+                <li><b>Load parameters</b> - Loads this task parameters to "Parameters" section.</li>
+                <li><b>Delete</b> - Deletes this result. Result also can be deleted with Del key press.</li>
+            </ul>
+        </div>
+        <p><b>Delete all</b> button deletes all the results</p>
+        <br/>
+
+		<h2><a name="plot_tab">Plot tab</a></h2>
+        <p>The <b>"Plot"</b> tab contains two figures, depending on whether a import file is loaded:</p>
 		<div style="margin-left:30px;">
-			<p>The <b>"Plot"</b> tab contains two figures, depending on whether a import file is loaded:</p>
 			<ul>
 				<li>Top figure plots synthetic curve as blue line and imported points as red dots.</li>
 				<li>Bottom figure show the residual for synthetic and imported values along with a Χ<sup>2</sup>.</li>
 			</ul>
 		</div>
+        <p><b>Auto plot finished result</b> is used to automatically select the result when it's calculated. This option can be unchecked to speedup calculations when range of values is calculated.</p>
+        <br/>
 
-		<h2><a name="result">Result table</a></h2>
+		<h2><a name="data_tab">Data tab</a></h2>
 		<div style="margin-left:30px;">
-			<p>The <b>"Result table"</b> tab shows last calculation values. For each phase values of the synthetic and imported curve are show along with the difference between them. This table can be exported in tab separated file from the <b>"Export..."</b> button.</p>
+			<p>The <b>"Data"</b> tab shows selected result values. For each phase values of the synthetic and imported curve are shown along with the difference between them. This table can be exported in tab separated file from the <b>"Export..."</b> button.</p>
 		</div>
+        <br/>
 
-		<h2><a name="file">File menu</a></h2>
+		<h2><a name="file_menu">File menu</a></h2>
 		<div style="margin-left:30px;">
 			<p>File menu is used for opening and saving your models.</p>
 			<p>You can use <b>"data/"</b> folder for storing your observations and models files. There is one example at <b>"data/wasp10/"</b>:</p>
@@ -107,6 +128,7 @@
 				<li>wasp10.ini - Represents already saved model which can be loaded from <b>"File -> Open..."</b> menu.</li>
 			</ul>
 		</div>
+        <br/>
 
 		<h2><a name="tips">Tips</a></h2>
 		<div style="margin-left:30px;">
